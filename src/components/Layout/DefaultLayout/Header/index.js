@@ -1,16 +1,55 @@
-import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Tippy from '@tippyjs/react/headless'; // different import path!
-// import 'tippy.js/dist/tippy.css'; // optional
 import Button from '~/components/Button';
+import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { useEffect, useState } from 'react';
 import AccountItem from '~/components/AccountItem';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+    faPlus,
+    faEllipsisVertical,
+    faEarthAsia,
+    faKeyboard,
+} from '@fortawesome/free-solid-svg-icons';
+import Menu from '~/components/Popper/Menu';
+import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
 
 const cx = classNames.bind(styles);
+
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng Viet',
+                },
+            ],
+        },
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts',
+    },
+];
+
 function Header() {
     const [searchResult, SetSearchResult] = useState([]);
 
@@ -58,8 +97,15 @@ function Header() {
                         Upload
                     </Button>
                     <Button primary>Login</Button>
+
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-button')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
                 {/* Target blank => open new tab */}
+                {/* target='_blank' */}
             </div>
         </header>
     );
