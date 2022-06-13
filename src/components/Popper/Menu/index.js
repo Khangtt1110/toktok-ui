@@ -34,6 +34,7 @@ function Menu({ children, items = [] }) {
         <Tippy
             delay={[null, 700]}
             interactive="true"
+            offset={[12, 8]}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -50,6 +51,8 @@ function Menu({ children, items = [] }) {
                     </PopperWrapper>
                 </div>
             )}
+            // when of tippy will return the first items
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
         >
             {children}
         </Tippy>

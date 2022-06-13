@@ -12,11 +12,12 @@
     background-color: var(--white);
     border: 1px solid transparent;
     user-select: none;
+    font-family: 'ProximaNova', sans-serif;
 
-    //2 button near
+    //2  near
     + .wrapper {
         margin-left: 8px;
-    } //Disabled button
+    } //Disabled
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
@@ -34,14 +35,14 @@
     margin-left: 8px;
 }
 
-//Text button
+//Text
 .text {
     &:hover {
         text-decoration: underline;
     }
 }
 
-//Button types
+// types
 .rounded {
     border-radius: 999px;
     border-color: rgba(22, 24, 35, 0.12);
@@ -86,7 +87,7 @@
     }
 }
 
-//Button size
+// size
 .small {
     min-width: 88px;
     padding: 4px 16px;

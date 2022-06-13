@@ -19,87 +19,15 @@
     justify-content: space-between;
     padding: 0 var(--default-layout-horizontal-spacer);
 }
-.search,
-.search-result {
-    width: 361px;
-}
-
-.search {
-    position: relative;
-    height: var(--search-height);
-    padding-left: 16px;
-    background: rgba(22, 24, 35, 0.06);
-    border-radius: var(--search-border-radius);
-    display: flex;
-    border: 1.5px solid transparent;
-
-    input {
-        flex: 1;
-        color: var(--black);
-        font-size: 1.6rem;
-        border: none;
-        background-color: transparent;
-        height: 100%;
-        caret-color: var(--primary);
-    }
-
-    // insert text into input will set color of search button
-    input:not(:placeholder-shown) ~ .search-btn {
-        color: rgba(22, 24, 35, 0.75);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: 1px;
-        height: calc(var(--search-height) - var(--search-top-spacer) * 2);
-        top: var(--search-top-spacer);
-        right: var(--search-button--width);
-        background-color: rgba(22, 24, 35, 0.12);
-    }
-
-    &:focus-within {
-        border: 1.5px solid rgba(22, 24, 35, 0.2);
-    }
-}
-
-.search-title {
-    padding: 5px 12px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 600;
-    color: rgba(22, 24, 35, 0.5);
-}
-
-.loading,
-.clear {
-    position: absolute;
-    right: calc(var(--search-button--width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
-}
-
-.search-btn {
-    width: var(--search-button--width);
-    height: 100%;
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-    font-size: 1.8rem;
-    color: rgba(22, 24, 35, 0.34);
-
-    &:hover {
-        background: rgba(22, 24, 35, 0.03);
-        cursor: pointer;
-    }
-
-    &:active {
-        background: rgba(22, 24, 35, 0.06) 0;
-    }
-}
 
 .custom-login {
     color: rgba(22, 24, 35, 0.75);
+}
+
+//Action
+.actions {
+    display: flex;
+    align-items: center;
 }
 
 .more-button {
@@ -107,4 +35,24 @@
     margin-left: 24px;
     padding: 4px 8px;
     background: transparent;
+}
+
+.action-btn {
+    font-size: 2.2rem;
+    color: #161823;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 24px;
+    cursor: pointer;
+}
+
+.icon-header {
+    margin-left: 16px;
 }
