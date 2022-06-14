@@ -5,7 +5,9 @@
 
     .container {
         width: var(--default-layout-width);
+        margin-left: var(--default-layout-header-height);
         display: flex;
+        margin-top: 60px;
     }
     .content {
         // Chiem het chieu rong con lai

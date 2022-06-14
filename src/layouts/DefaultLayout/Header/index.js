@@ -9,6 +9,7 @@ import Menu from '~/components/Popper/Menu';
 import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
 import { MessageIcon, SendIcon } from '~/components/Icons';
 import Image from '~/components/Images';
+import config from '~/config';
 import {
     faPlus,
     faEllipsisVertical,
@@ -19,7 +20,8 @@ import {
     faGear,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import Search from '~/components/Layout/DefaultLayout/Seach';
+import Search from '~/layouts/DefaultLayout/Search';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -53,7 +55,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const currentUser = false;
+    const currentUser = true;
 
     const userMenu = [
         {
@@ -85,7 +87,9 @@ function Header() {
             <div className={cx('inner')}>
                 {/* Logo */}
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok"></img>
+                    <Link to={config.routes.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok"></img>
+                    </Link>
                 </div>
                 {/* Search  */}
                 <Search />
@@ -117,7 +121,7 @@ function Header() {
                             <Button primary>Login</Button>
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS}>
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} hideOnClick="false">
                         {currentUser ? (
                             <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/d5d7b58b1a7f01f757e6639d0f9aeb83~c5_100x100.jpeg?x-expires=1655258400&x-signature=oWyKHdn0hSi9UJrz%2FkelXhje6vI%3D"
